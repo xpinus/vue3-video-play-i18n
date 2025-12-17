@@ -21,13 +21,17 @@
             v-show="state.handleType == 'playbackRate' || state.isMultiplesPlay"
         >
             <d-icon size="12" icon="icon-play"></d-icon>
-            <d-icon size="12" icon="icon-play" style="margin-right:5px"></d-icon>5倍速播放中
+            <d-icon size="12" icon="icon-play" style="margin-right:5px"></d-icon>{{ t('status.5x') }}
         </li>
     </div>
 </template>
 
 <script setup lang='ts'>
 import DIcon from './d-icon.vue'
+import { useComponentI18n } from '../locales';
+
+const { t } = useComponentI18n();
+
 const props = defineProps(['state'])
 
 </script>

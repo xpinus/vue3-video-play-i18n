@@ -16,10 +16,14 @@
     >
       {{ options.src }}
     </button>
+
+    <button @click="switchLang">语言切换</button>
+
     <videoPlay
       ref="video"
       style="display: inline-block; width: 100%"
       v-bind="options"
+      :locale="lang"
     />
   </div>
 </template>
@@ -63,6 +67,19 @@ const video = ref(null);
 nextTick(() => {
   console.log(video.value);
 });
+
+const lang = ref("en-US");
+
+function switchLang() {
+  if (lang.value === "en-US") {
+    lang.value = "zh-CN";
+  } else {
+    lang.value = "en-US";
+  }
+
+  console.log(lang.value);
+  
+}
 </script>
 
 <style scoped>

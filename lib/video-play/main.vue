@@ -45,7 +45,7 @@
         :src="props.src"
         :poster="props.poster"
       >
-        您的浏览器不支持Video标签。
+        {{ t('main.unsupported') }}
       </video>
     </div>
     <!-- 缓冲动画 -->
@@ -152,7 +152,7 @@
             class="d-tool-item speedRate-btn"
             v-if="props.controlBtns.includes('speedRate')"
           >
-            {{ state.speedActive == "1.0" ? "倍速" : state.speedActive + "x" }}
+            {{ state.speedActive == "1.0" ? t('main.speed') : state.speedActive + "x" }}
             <div class="d-tool-item-main">
               <ul class="speed-main">
                 <li
@@ -208,15 +208,15 @@
             <div class="d-tool-item-main">
               <ul class="speed-main">
                 <li>
-                  镜像画面
+                  {{ t('main.mirror') }}
                   <d-switch @change="mirrorChange" v-model="state.mirror" />
                 </li>
                 <li>
-                  循环播放
+                  {{ t('main.loop') }}
                   <d-switch @change="loopChange" v-model="state.loop" />
                 </li>
                 <li>
-                  关灯模式
+                  {{ t('main.light_off') }}
                   <d-switch @change="lightOffChange" v-model="state.lightOff" />
                 </li>
               </ul>
@@ -229,7 +229,7 @@
             @click="requestPictureInPictureHandle"
           >
             <d-icon size="20" icon="icon-pip"></d-icon>
-            <div class="d-tool-item-main">画中画</div>
+            <div class="d-tool-item-main">{{ t('main.pip') }}</div>
           </div>
           <!-- 网页全屏 -->
           <div
@@ -238,7 +238,7 @@
             @click="state.webFullScreen = !state.webFullScreen"
           >
             <d-icon size="20" icon="icon-web-screen"></d-icon>
-            <div class="d-tool-item-main">网页全屏</div>
+            <div class="d-tool-item-main">{{ t('main.page_full_screen') }}</div>
           </div>
           <!-- 全屏 -->
           <div
@@ -246,7 +246,7 @@
             v-if="props.controlBtns.includes('fullScreen')"
             @click="toggleFullScreenHandle"
           >
-            <div class="d-tool-item-main">全屏</div>
+            <div class="d-tool-item-main">{{ t('main.full_screen') }}</div>
             <d-icon size="20" icon="icon-screen"></d-icon>
           </div>
         </div>
@@ -279,6 +279,10 @@ import {
   isMobile,
   firstUpperCase,
 } from "../utils/util";
+import { useComponentI18n } from "../locales/index"
+
+const { t, setLocale } = useComponentI18n()
+
 const Hls = new Hls2({ fragLoadingTimeOut: 2000 });
 import { videoEmits, defineProps } from "./plugins/index";
 const props = defineProps(defineProps); //props
@@ -288,6 +292,13 @@ const emits = defineEmits([
   "loopChange",
   "lightOffChange",
 ]); //emits
+
+setLocale(props.locale)
+
+watch(() => props.locale, (newValue) => {
+  setLocale(newValue)
+})
+
 
 const refPlayerWrap: Ref<HTMLElement> = ref(null); //wrap
 const refdVideo: Ref<HTMLElement> = ref(null); // 视频播放器

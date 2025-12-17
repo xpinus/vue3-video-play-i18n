@@ -87,6 +87,9 @@ import { watch, reactive, onMounted, computed, onUnmounted } from "vue";
 import { on, off } from "../utils/dom";
 import { version } from "../../package.json";
 import DSlider from "./d-slider.vue";
+import { useComponentI18n } from "../locales";
+
+const { t } = useComponentI18n();
 const state = reactive({
   show: false,
   dialogType: "",
@@ -96,21 +99,25 @@ const state = reactive({
   mouseY: 0,
 });
 
-const menuList = [
-  { label: "视频色彩调整", key: "filter" },
-  { label: "快捷键说明", key: "hotkey" },
-  { label: "复制视频网址", key: "copy" },
-  { label: "版本：" + version, key: "version" },
-];
-const hotkeyList = [
-  { key: "Space", label: "播放/暂停" },
-  { key: "→", label: "单次快进10s，长按5倍速播放" },
-  { key: "←", label: "快退5s" },
-  { key: "↑", label: "音量增加10%" },
-  { key: "↓", label: "音量增加降低10%" },
-  { key: "Esc", label: "退出全屏/退出网页全屏" },
-  { key: "F", label: "全屏/退出全屏" },
-];
+const menuList = computed(() => { 
+  return [
+    { label: t('contextmenu.menu.filter'), key: "filter" },
+    { label: t('contextmenu.menu.hotkey'), key: "hotkey" },
+    { label: t('contextmenu.menu.copy'), key: "copy" },
+    { label: t('contextmenu.menu.version') + version, key: "version" },
+  ];
+})
+const hotkeyList = computed(() => { 
+  return [
+    { key: "Space", label: t('contextmenu.hotkey.space') },
+    { key: "→", label: t('contextmenu.hotkey.right_arrow') },
+    { key: "←", label: t('contextmenu.hotkey.left_arrow') },
+    { key: "↑", label: t('contextmenu.hotkey.up_arrow') },
+    { key: "↓", label: t('contextmenu.hotkey.down_arrow') },
+    { key: "Esc", label: t('contextmenu.hotkey.esc') },
+    { key: "F", label: t('contextmenu.hotkey.f') },
+  ]
+});
 const filter = reactive({
   saturate: 0.392,
   brightness: 0.392,
@@ -165,7 +172,7 @@ const contextmenuHide = (ev) => {
   let keycode =
     ev.target.attributes.dplayerKeyCode &&
     ev.target.attributes.dplayerKeyCode.value;
-  let hotKeyArr = menuList.map((item) => item.key);
+  let hotKeyArr = menuList.value.map((item) => item.key);
   if (tagName && hotKeyArr.includes(keycode)) {
     state.dialogTitle = ev.target.innerText;
     state.dialogType = keycode;

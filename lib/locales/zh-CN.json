@@ -1,0 +1,41 @@
+{
+  "main": {
+    "speed": "倍速",
+    "unsupported": "您的浏览器不支持Video标签。",
+    "mirror": "镜像画面",
+    "loop": "循环播放",
+    "light_off": "关灯模式",
+    "pip": "画中画",
+    "page_full_screen": "网页全屏",
+    "full_screen": "全屏"
+  },
+  "contextmenu": {
+    "saturation": "饱和度",
+    "brightness": "亮度",
+    "contrast": "对比度",
+    "reset": "重置",
+    "menu": {
+      "filter": "视频色彩调整",
+      "hotkey": "快捷键说明",
+      "copy": "复制视频网址",
+      "version": "版本："
+    },
+    "hotkey": {
+      "space": "播放/暂停",
+      "right_arrow": "单次快进10s，长按5倍速播放",
+      "left_arrow": "快退5s",
+      "up_arrow": "音量增加10%",
+      "down_arrow": "音量降低10%",
+      "esc": "退出全屏/退出网页全屏",
+      "f": "全屏/退出全屏"
+    }
+  },
+  "loading": {
+    "loading": "正在缓冲...",
+    "replay": "重新播放",
+    "error": "请求错误"
+  },
+  "status": {
+    "5x": "5倍速播放中"
+  }
+}

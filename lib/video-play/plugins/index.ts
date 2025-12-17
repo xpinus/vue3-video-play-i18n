@@ -59,4 +59,5 @@ export const defineProps = {
     ],
   }, //是否显示控制器
   preload: { type: String, default: "auto" }, //预加载
+  locale: { type: String, default: "zh-CN" },
 };

@@ -1,0 +1,41 @@
+{
+  "main": {
+    "speed": "Speed",
+    "unsupported": "Your browser does not support the video tag.",
+    "mirror": "Mirror",
+    "loop": "Loop",
+    "light_off": "Light Off",
+    "pip": "PIP",
+    "page_full_screen": "Web FullScreen",
+    "full_screen": "FullScreen"
+  },
+  "contextmenu": {
+    "saturation": "Saturation",
+    "brightness": "Brightness",
+    "contrast": "Contrast",
+    "reset": "Reset",
+    "menu": {
+      "filter": "Filter",
+      "hotkey": "Hotkey",
+      "copy": "Copy Link",
+      "version": "version: "
+    },
+    "hotkey": {
+      "space": "Play/Pause",
+      "right_arrow": "Skip forward 10s at a time, long press to play at 5x speed",
+      "left_arrow": "Rewind 5s",
+      "up_arrow": "Volume Up 10%",
+      "down_arrow": "Volume Down 10%",
+      "esc": "Exit Full Screen / Exit Web Full Screen",
+      "f": "Full Screen / Exit Full Screen"
+    }
+  },
+  "loading": {
+    "loading": "loading...",
+    "replay": "Re-Play",
+    "error": "Error"
+  },
+  "status": {
+    "5x": "Playing at 5x"
+  }
+}
