@@ -1,11 +1,3 @@
-<!--
- * @Author: web.王晓冬
- * @Date: 2021-08-19 18:56:59
- * @LastEditors: itab.link
- * @LastEditTime: 2023-11-09 15:44:51
- * @Description: file content
--->
-
 [![Version](https://img.shields.io/npm/dt/vue3-video-play.svg?style=flat-square)](https://www.npmjs.com/package/vue3-video-play)
 [![Downloads](https://img.shields.io/npm/v/vue3-video-play.svg?style=flat-square)](https://www.npmjs.com/package/vue3-video-play)
 [![GitHub stars](https://img.shields.io/github/stars/xdlumia/vue3-video-play.svg?style=flat-square)](https://github.com/xdlumia/vue3-video-play/stargazers)
@@ -18,7 +10,11 @@
 
 <span style="color:#cb3837"> **必须使用 vue@3.2.2及以上版本**</span>
 
-### Vue3-video-play
+### Vue3-video-play-i18n
+
+> 添加对于i18n支持
+> 通过`locale`属性来设置语言，目前支持`zh-CN`和`en-US`。
+`
 
 适用于 Vue3 的 hls.js 播放器组件 | 并且支持 MP4/WebM/Ogg 格式
 配置强大，UI 还算好看
