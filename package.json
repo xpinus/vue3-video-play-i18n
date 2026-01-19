@@ -1,6 +1,6 @@
 {
   "name": "vue3-video-play-i18n",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "hls.js player component for Vue3 with i18n",
   "files": [
     "dist",
