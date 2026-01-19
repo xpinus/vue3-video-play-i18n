@@ -9,7 +9,7 @@
   <div
     class="d-loading"
     :style="loadingStyle"
-    v-show="LOAD_TYPE.includes(loadType)"
+    v-show="LOAD_TYPE.includes(loadType)&&!isIOSBrowser()"
   >
     <div>
       <!-- 初始化加载 -->
@@ -43,6 +43,11 @@ import { getCurrentInstance, reactive, computed } from "vue";
 import DIcon from "./d-icon.vue";
 import { useComponentI18n } from "../locales";
 
+//IOS移动端不显示加载动画
+const isIOSBrowser=()=> {
+  return /iP(ad|hone|od)/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
 const { t } = useComponentI18n();
 const { proxy } = getCurrentInstance();
 const LOAD_TYPE = ["loadstart", "waiting", "ended", "error", "stalled"];
